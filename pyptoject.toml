@@ -1,7 +1,8 @@
 [tools.isort]
-profile = "black"
 line_length=100
 multi_line_output = 4
+force_alphabetical_sort = true
+no_sections = true
 
 [tools.pytest]
-testpaths = test
+testpaths = "test"
