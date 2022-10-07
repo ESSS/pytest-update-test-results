@@ -1,6 +1,6 @@
-import setuptools
-
 import io
+
+import setuptools
 
 with io.open("CHANGELOG.rst", encoding="UTF-8") as changelog_file:
     history = changelog_file.read()
@@ -11,15 +11,16 @@ extras_require = {
     "testing": ["pytest", "pre-commit", "tox"],
 }
 setuptools.setup(
-    author='ESSS',
-    author_email='foss@esss.co',
+    author="ESSS",
+    author_email="foss@esss.co",
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Framework :: Pytest",
     ],
     description="Pytest plugin to change XML files from a previous run.",
     extras_require=extras_require,
@@ -35,4 +36,5 @@ setuptools.setup(
     use_scm_version=True,
     setup_requires=["setuptools_scm"],
     zip_safe=False,
+    entry_points={"pytest11": ["pytest-merge-xml = pytest_merge_xml.plugin"]},
 )
