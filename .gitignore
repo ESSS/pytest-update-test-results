@@ -18,7 +18,3 @@ dist/
 .eggs/
 .tox/
 .venv/
-
-# local files
-failure.xml
-failure_overwrite.xml
