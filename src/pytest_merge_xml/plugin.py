@@ -2,7 +2,6 @@ from pathlib import Path
 from typing import Dict
 
 from _pytest.reports import TestReport
-
 from pytest_merge_xml.merge_xml import modify_xml
 
 

@@ -1,9 +1,8 @@
 from pathlib import Path
 
 from _pytest.reports import TestReport
-from pytest_regressions.file_regression import FileRegressionFixture
-
 from pytest_merge_xml.merge_xml import modify_xml
+from pytest_regressions.file_regression import FileRegressionFixture
 
 
 def test_xml_one_failed_two_passed(

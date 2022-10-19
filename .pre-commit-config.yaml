@@ -1,3 +1,4 @@
+# versions pinned to keep compatibility with python 3.6.
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v1.3.0
@@ -6,13 +7,12 @@ repos:
   - id: end-of-file-fixer
   - id: check-yaml
   - id: debug-statements
-  - id: flake8
-- repo: https://github.com/pycqa/isort
-  rev: 5.10.1
+- repo: https://github.com/asottile/reorder_python_imports
+  rev: v2.6.0
   hooks:
   - id: reorder-python-imports
 - repo: https://github.com/psf/black
-  rev: stable
+  rev: 21.12b0
   hooks:
   - id: black
     language_version: python3.6
