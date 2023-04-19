@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuites><testsuite errors="0" failures="2" hostname="BRWS009" name="pytest" skipped="0" tests="3" time="0.035" timestamp="2022-10-04T15:10:10.669419"><testcase classname="src.test_flaky" name="test_xml_one_failed_two_passed" time="0.000"><failure message="assert False">def test_xml_one_failed_two_passed():
+<testsuites><testsuite errors="0" failures="2" hostname="BRWS009" name="pytest" skipped="0" tests="3" time="0.035" timestamp="2022-10-04T15:10:10.669419"><testcase classname="test.test_flaky" name="first_test_passed" time="0.000"><failure message="assert False">def first_test_passed():
 &gt;       assert False
 E       assert False
 
-src/test_flaky.py:8: AssertionError</failure></testcase><testcase classname="src.test_flaky" name="test_xml_two_failed_one_passed" time="0.000" /><testcase classname="src.test_flaky" name="test_xml_three_failed_zero_passed" time="0.000"><failure message="assert False">def test_xml_three_failed_zero_passed():
+src/test_flaky.py:8: AssertionError</failure></testcase><testcase classname="test.test_flaky" name="second_test_passed" time="0.000" /><testcase classname="test.test_flaky" name="third_test_failed" time="0.000"><failure message="assert False">def third_test_failed():
 &gt;       assert False
 E       assert False
 

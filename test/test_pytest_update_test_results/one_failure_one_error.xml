@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <testsuites>
   <testsuite errors="1" failures="1" hostname="BRWS009" name="pytest" skipped="0" tests="3" time="0.035" timestamp="2022-10-04T15:10:10.669419">
-    <testcase classname="src.test_flaky" name="test_xml_one_failed_two_passed" time="0.000">
-      <failure message="assert False">def test_xml_one_failed_two_passed():
+    <testcase classname="test.test_flaky" name="test_failure_passed" time="0.000">
+      <failure message="assert False">def test_failure_passed():
 &gt;       assert False
 E       assert False
 
 src/test_flaky.py:8: AssertionError</failure>
-    </testcase><testcase classname="src.test_flaky" name="test_xml_two_failed_one_passed" time="0.000" />
-    <testcase classname="src.test_flaky" name="test_xml_three_failed_zero_passed" time="0.000">
-      <error message="failed on setup with &quot;worker 'gw5' crashed while running 'test_xml_three_failed_zero_passed'&quot;">worker 'gw5' crashed while running 'build/bare_tests/source/python/_python_tests/rocky30/core/simulator/_tests/test_rocky_solver_process.py::testRockyFluentTwoWaySolverMisconfiguration'</error>
+    </testcase><testcase classname="src.test_flaky" name="test_error_passed" time="0.000" />
+    <testcase classname="test.test_flaky" name="test_error_passed" time="0.000">
+      <error message="failed on setup with &quot;worker 'gw5' crashed while running 'test_error_passed'&quot;">worker 'gw5' crashed while running 'build/bare_tests/source/python/_python_tests/rocky30/core/simulator/_tests/test_rocky_solver_process.py::testRockyFluentTwoWaySolverMisconfiguration'</error>
     </testcase>
   </testsuite>
 </testsuites>

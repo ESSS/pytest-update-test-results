@@ -1,9 +1,33 @@
 import shutil
 import xml.etree.ElementTree as Et
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Tuple
 
 from _pytest.reports import TestReport
+
+
+def nodeid_to_uid(nodeid: str) -> Tuple[str, str]:
+    """
+    Converts a TestReport nodeid to a unique identifier for a test case, and returns a tuple containing
+    the UID and the test name.
+
+    :param nodeid: A TestReport nodeid string, typically in the format: "path/to/test_file.py::TestClass::test_name".
+    :return: A tuple containing the UID and the test name. The UID will be in the format:
+             "path.to.test_file.TestClass" if there's a class, or "path.to.test_file" if not.
+    """
+    test_filepath_uid, test_name = nodeid.rsplit("::", 1)
+
+    if "::" in test_filepath_uid:
+        test_filepath_uid, class_name = test_filepath_uid.split("::")
+    else:
+        class_name = ""
+
+    test_filepath_without_ext = Path(test_filepath_uid).with_suffix('')
+    test_name_with_dots = ".".join(test_filepath_without_ext.parts)
+
+    test_uid = f"{test_name_with_dots}.{class_name}" if class_name else test_name_with_dots
+
+    return test_uid, test_name
 
 
 def modify_xml(original_xml: Path, retest_results: Dict[str, TestReport], new_xml: Path) -> None:
@@ -23,13 +47,14 @@ def modify_xml(original_xml: Path, retest_results: Dict[str, TestReport], new_xm
     original_failure_count = retest_failure_count = int(testsuite.attrib["failures"])
     original_error_count = retest_error_count = int(testsuite.attrib["errors"])
 
+    # test_uid = nodeid => classname + name do xml
     succeed_in_retest = {
-        result.location[2] for result in retest_results.values() if result.outcome == "passed"
+        nodeid_to_uid(report.nodeid) for report in retest_results.values() if report.outcome == "passed"
     }
 
     for testcase in testsuite:
-        testcase_name = testcase.attrib["name"]
-        if testcase_name in succeed_in_retest:
+        testcase_identifier = (testcase.attrib["classname"], testcase.attrib["name"])
+        if testcase_identifier in succeed_in_retest:
             failure = testcase.find("failure")
             if failure is not None:
                 retest_failure_count -= 1

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite errors="0" failures="1" hostname="BRWS009" name="pytest" skipped="0" tests="3" time="0.035" timestamp="2022-10-04T15:10:10.669419">
+  <testcase classname="test.test_flaky" name="test_name" time="0.000" />
+  <testcase classname="test.test_flaky.OtherClassName" name="test_duplicated_test_names" time="0.000" />
+  <testcase classname="test.test_flaky.Test" name="test_duplicated_test_names" time="0.000">
+    <failure message="assert False">def test_duplicated_test_names():
+&gt;       assert False
+E       assert False
+
+test/test_flaky.py:8: AssertionError</failure>
+  </testcase>
+  </testsuite>
+</testsuites>

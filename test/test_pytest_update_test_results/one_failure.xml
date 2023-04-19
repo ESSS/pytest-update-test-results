@@ -1,14 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <testsuites>
   <testsuite errors="0" failures="1" hostname="BRWS009" name="pytest" skipped="0" tests="3" time="0.035" timestamp="2022-10-04T15:10:10.669419">
-  <testcase classname="src.test_flaky" name="test_xml_one_failed_two_passed" time="0.000" />
-  <testcase classname="src.test_flaky" name="test_xml_two_failed_one_passed" time="0.000" />
-  <testcase classname="src.test_flaky" name="test_xml_three_failed_zero_passed" time="0.000">
-    <failure message="assert False">def test_xml_three_failed_zero_passed():
+  <testcase classname="test.test_flaky" name="test_passed" time="0.000" />
+  <testcase classname="test.test_flaky" name="test_one_failure_passed" time="0.000">
+    <failure message="assert False">def test_one_failure_passed():
 &gt;       assert False
 E       assert False
 
-src/test_flaky.py:16: AssertionError</failure>
+test/test_flaky.py:16: AssertionError</failure>
   </testcase>
   </testsuite>
 </testsuites>
