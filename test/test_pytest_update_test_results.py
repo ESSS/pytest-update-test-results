@@ -148,8 +148,8 @@ def test_failure_using_unittest_style(datadir: Path) -> None:
         )
     }
 
-    modified_file = datadir / "failure_using_unittest_style.retest.xml"
-    modify_xml(Path(datadir / "failure_using_unittest_style.xml"), retest_results, modified_file)
+    modified_file = datadir / "one_failure_unittest_style.retest.xml"
+    modify_xml(Path(datadir / "one_failure_unittest_style.xml"), retest_results, modified_file)
 
     et = ET.parse(modified_file)
     root_el = et.getroot()
@@ -170,8 +170,8 @@ def test_duplicated_test_names(datadir: Path) -> None:
         )
     }
 
-    modified_file = datadir / "failure_duplicated_test_names.retest.xml"
-    modify_xml(Path(datadir / "failure_duplicated_test_names.xml"), retest_results, modified_file)
+    modified_file = datadir / "one_failure_duplicated_names.retest.xml"
+    modify_xml(Path(datadir / "one_failure_duplicated_names.xml"), retest_results, modified_file)
 
     et = ET.parse(modified_file)
     root_el = et.getroot()
